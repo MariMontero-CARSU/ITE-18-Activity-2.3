@@ -1,11 +1,12 @@
 import { defineConfig } from "vite"
 
 const isCodeSandbox = 'SANDBOX_URL' in process.env || 'CODESANDBOX_HOST' in process.env
+const isElectron = process.env.BUILD_TARGET === 'electron'
 
 export default defineConfig({
     root: 'src/',
     publicDir: '../static/',
-    base: '/ITE-18-Activity-2.3/',
+    base: isElectron ? './' : '/ITE-18-Activity-2.3/',
     server:
     {
         host: true,
